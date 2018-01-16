@@ -1,12 +1,7 @@
 import React from 'react';
-// import Song from './Song';
+import Song from './Song';
 
 class SongDisplay extends React.Component {
-
-//   constructor(props) {
-//     super(props);
-// }
-
 
 render() {
 
@@ -17,24 +12,21 @@ render() {
 
   //console.log(this.props.songs[0].title.label);
 
-    // const songNodes = this.props.songs.feed.entry.map(function(song, index){
-    //   return (
-    //   <ul>
-    //   <li key={index} {song['im:name']} </li>
-    //   </ul>
-    //   );
-    // })
+    const songNodes = this.props.songs.map(function(song, index){
+      return (
+       <Song key = {index}
+         position={index+1}
+         title={song['im:name'].label}
+         artist ={song['im:artist'].label}/>
+      );
+    })
 
   return (
     <div className="song-display">
-      {/* {songNodes} */}
+      {songNodes}
     </div>
-
-    )
+  )
 }
-
-
-
 }
 
 
