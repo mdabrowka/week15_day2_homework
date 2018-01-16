@@ -1,6 +1,6 @@
 import React from 'react';
 import SongDisplay from '../components/SongDisplay.js';
-import Song from '../components/Song';
+
 
 class SongsContainer extends React.Component {
   constructor(props) {
@@ -19,16 +19,17 @@ class SongsContainer extends React.Component {
       request.addEventListener('load', () => {
       if(request.status !== 200) return;
       const jsonString = request.responseText;
-      const songs = JSON.parse(jsonString);
-      console.log(songs.feed.entry);
-      this.setState({songs : songs.feed.entry });
-
+      const songList = JSON.parse(jsonString);
+      // console.log(songs.feed.entry);
+      const data = songList.feed.entry;
+      this.setState({songs : data });
+      //console.log(this.state.songs[0]['im:name']);
   });
   }
 
   render() {
     return (
-      <div>
+      <div className="song-container">
         <h2>ITunes UK Chart Hits</h2>
        <SongDisplay songs={this.state.songs}/>
       </div>
