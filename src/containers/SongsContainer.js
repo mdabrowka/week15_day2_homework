@@ -1,5 +1,6 @@
 import React from 'react';
 import SongDisplay from '../components/SongDisplay.js';
+import Song from '../components/Song';
 
 class SongsContainer extends React.Component {
   constructor(props) {
